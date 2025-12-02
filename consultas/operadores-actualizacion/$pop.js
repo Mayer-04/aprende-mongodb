@@ -1,6 +1,25 @@
 /*
  * Operador $pop - Eliminar el primer o ultimo elemento de un array
- * Elimina el primer elemento de un array donde "name" sea "Mayer" y el campo o array "skills" se elimina
+Si el array está vacío, $pop no hace nada
  */
 
-db.collection.updateOne({ name: "Mayer" }, { $pop: { skills: 1 } })
+// Eliminar el último elemento del array (1)
+db.users.updateOne(
+  { name: "Mayer" }, 
+  { $pop: { skills: 1 } }
+)
+
+// Eliminar el primer elemento del array (-1)
+db.users.updateOne(
+  { name: "Mayer" }, 
+  { $pop: { skills: -1 } }
+)
+
+// Valores permitidos:
+// 1  = elimina el último elemento (final del array)
+// -1 = elimina el primer elemento (inicio del array)
+
+// Ejemplo de documento:
+{ name: "Mayer", skills: ["JavaScript", "Python", "MongoDB"] }
+// Después de $pop: { skills: 1 }
+{ name: "Mayer", skills: ["JavaScript", "Python"] }
