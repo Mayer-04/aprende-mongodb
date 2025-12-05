@@ -7,7 +7,8 @@ Este repo es una colección de comandos cortos para aprender MongoDB desde la co
 - `base-datos/`: crear, listar y borrar bases de datos.
 - `colecciones/`: crear colecciones, renombrar, eliminar, poner índices y validadores.
 - `documentos/`: CRUD de documentos, paginación (`limit`, `skip`), `distinct` y conteos.
-- `consultas/`: operadores de comparación, lógicos, arrays, elementos, actualización, `$regex`, `$where` y `$lookup` para unir colecciones.
+- `consultas/`: operadores de comparación, lógicos, arrays, elementos, actualización, `$regex` y `$where`.
+- `consultas/agregaciones/`: `aggregate`, `$lookup`, `$unwind`, `$project`, `$group`, `$match` y `$sort`.
 
 ## Buenas prácticas que aparecen en los ejemplos
 
