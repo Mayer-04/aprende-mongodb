@@ -9,6 +9,7 @@ db.usuarios.find({
 })
 
 // AND explícito (cuando necesitas condiciones complejas)
+// los corchetes solo son obligatorios cuando usas $and explícitos
 db.usuarios.find({
   $and: [
     { ciudad: "Bogotá" },
