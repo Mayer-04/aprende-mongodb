@@ -1,25 +1,25 @@
-/*
- * Operador $pop - Eliminar el primer o ultimo elemento de un array
-Si el array está vacío, $pop no hace nada
- */
+// $pop: saca el primer (-1) o ultimo (1) elemento de un arreglo
 
-// Eliminar el último elemento del array (1)
-db.users.updateOne(
-  { name: "Mayer" }, 
-  { $pop: { skills: 1 } }
+// Quitar la notificacion mas antigua (primer elemento)
+db.usuarios.updateOne(
+  { nombre: "Mayer" },
+  { $pop: { notificaciones: -1 } }
 )
 
-// Eliminar el primer elemento del array (-1)
-db.users.updateOne(
-  { name: "Mayer" }, 
-  { $pop: { skills: -1 } }
+// Quitar el historial mas reciente (ultimo elemento)
+db.usuarios.updateOne(
+  { nombre: "Mayer" },
+  { $pop: { historial: 1 } }
 )
 
-// Valores permitidos:
-// 1  = elimina el último elemento (final del array)
-// -1 = elimina el primer elemento (inicio del array)
+// Eliminar el primer comentario de una lista
+db.posts.updateOne(
+  { slug: "guia-mongo" },
+  { $pop: { comentarios: -1 } }
+)
 
-// Ejemplo de documento:
-{ name: "Mayer", skills: ["JavaScript", "Python", "MongoDB"] }
-// Después de $pop: { skills: 1 }
-{ name: "Mayer", skills: ["JavaScript", "Python"] }
+// Si necesitas quitar un valor especifico, usa $pull en lugar de $pop
+db.usuarios.updateOne(
+  { nombre: "Mayer" },
+  { $pull: { notificaciones: "promo" } }
+)
